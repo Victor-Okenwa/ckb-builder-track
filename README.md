@@ -23,12 +23,22 @@ ckb-builder-track/
 ├── dist/               # Compiled output (generated)
 │   ├── hello-world.js  # Bundled JavaScript
 │   └── hello-world.bc  # Compiled bytecode
+├── deployment/         # Deployment artifacts (generated)
+│   └── scripts.json    # Contract script information
+├── reports/            # 📝 Weekly progress reports
+│   └── ckb-builder-report-wk1.md
 ├── package.json
 ├── tsconfig.json       # TypeScript configuration
 ├── tsconfig.base.json  # Base TypeScript settings
 ├── jest.config.cjs     # Jest testing configuration
 └── README.md
 ```
+
+## Weekly Reports
+
+Progress reports documenting the learning journey and development milestones are maintained in the `reports/` directory. Each report follows the naming convention `ckb-builder-report-wk{N}.md` where `{N}` is the week number.
+
+📂 **Reports Location:** [`reports/`](./reports/)
 
 ## Getting Started
 

@@ -40,3 +40,26 @@ This log summarizes my learning on the academy lessons 1.
 * The codes are not directly stored in the __code_hash__  but rather the __code_hash__ stored the address to the code which is stored in another cell called the __CELLDEP (Dependency Cell)__, this allows multiple cells to reference the same code.
 * If the specific cell containing a lock's binary code is __CellDep__ "spent" (consumed in a transaction), the original reference in your transaction becomes invalid because cell_deps must point to live cells.
 * Constructing a transaction means to destroy some cells and create new ones.
+* A transaction is basically `transaction: inputs -> outputs`
+
+* The cells in the inputs must all be live cells. The input cells will be spent and become dead cells after a transaction is committed.  Then the newly created output cells will become new live cells.
+
+### Transaction Rules
+
+1. The total capacity of all the output cells must be less than the total capacity of all the output cells.
+2. The difference in capacity between inputs and outputs, is the fee that the miner earns. 
+
+    ```bash
+      sum(cell's capacity for each cell in inputs)
+        - sum(cell's capacity for each cell in outputs)
+        = fee
+    ```
+
+__Outpoint__
+An Outpoint is the index of input cells. This is for __storage optimization__.
+```js
+OutPoint: {
+  tx_hash: The hash value of the transaction to which the target cell belongs
+  index: The cell position in the transaction to which the target cell belongs
+}
+```

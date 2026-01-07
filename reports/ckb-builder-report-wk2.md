@@ -63,3 +63,12 @@ OutPoint: {
   index: The cell position in the transaction to which the target cell belongs
 }
 ```
+
+
+### Difference between Lock Scripts and Type Script
+
+| __Lock Script__      | __Type Script__       |
+| ------------ | ---------------------- |
+| Required        | Optional  |
+| Protect the ownership of the box      | Ensures that the cell follows certain application logic               |
+|  In a transaction, the lock scripts run for all inputs by group. | In a transaction, the type scripts run for all inputs and outputs by group.    |

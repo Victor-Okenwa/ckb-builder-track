@@ -36,3 +36,6 @@ This log summarizes my learning on the academy lessons 1.
 * If the code was executed successfully, a “0” response will be returned indicating that the lock can be opened, if not, other error codes will be returned indicating that the unlocking failed and that means it is unauthorized.
 
 * Locks are vital to the cell because without it anyone can use that cell and spend the money of the real owner.
+
+* The codes are not directly stored in the __code_hash__  but rather the __code_hash__ stored the address to the code which is stored in another cell called the __CELLDEP (Dependency Cell)__, this allows multiple cells to reference the same code.
+* 

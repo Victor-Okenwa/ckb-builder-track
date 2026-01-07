@@ -38,4 +38,5 @@ This log summarizes my learning on the academy lessons 1.
 * Locks are vital to the cell because without it anyone can use that cell and spend the money of the real owner.
 
 * The codes are not directly stored in the __code_hash__  but rather the __code_hash__ stored the address to the code which is stored in another cell called the __CELLDEP (Dependency Cell)__, this allows multiple cells to reference the same code.
-* 
+* If the specific cell containing a lock's binary code is __CellDep__ "spent" (consumed in a transaction), the original reference in your transaction becomes invalid because cell_deps must point to live cells.
+* Constructing a transaction means to destroy some cells and create new ones.

@@ -78,3 +78,28 @@ OutPoint: {
 A Script in __Nervos CKB__ is a small program that decides whether a transaction is allowed or not.
 
 ### How CKB runs a script
+
+* CKB takes the executables and runs them in the __CKB Virtual Machine.
+* After the execution, if the program returns 0 then the script ran consider successfully; any non-zero return codes will be considered Script failures. 
+
+__Note__ When a transaction is submitted to CKB, it executes all the Scripts from the transaction to ensure that each Script succeeds. If one or more Scripts fails, the transaction will not be included on-chain.
+
+### Types of Scripts
+
+* __Lock Script:__ This controls who owns and access a cell.
+* __Type Script:__ This controls how a cell is used in a transaction. It is like the after script.
+
+### Script Structure
+
+This is the structure os scripts in CKB:
+
+```js
+pub struct Script {
+    pub code_hash: H256,
+    pub hash_type: ScriptHashType,
+    pub args: JsonBytes,
+}
+```
+__code_hash:__ Identifies the Script code.
+__hash_type:__ Defines how to interpret the code_hash when locating the Script code.
+__args:__ Parameters passed to the Script, used to customize its behavior.

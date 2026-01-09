@@ -72,3 +72,9 @@ OutPoint: {
 | Required        | Optional  |
 | Protect the ownership of the box      | Ensures that the cell follows certain application logic               |
 |  In a transaction, the lock scripts run for all inputs by group. | In a transaction, the type scripts run for all inputs and outputs by group.    |
+
+## Scripts In CKB
+
+A Script in __Nervos CKB__ is a small program that decides whether a transaction is allowed or not.
+
+### How CKB runs a script

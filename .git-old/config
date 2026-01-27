@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[branch "main"]
+	gk-last-accessed = 2026-01-27T08:20:00.159Z
+	remote = origin
+	merge = refs/heads/main
+	gk-last-modified = 2026-01-15T18:29:52.436Z
+[remote "origin"]
+	url = https://github.com/Victor-Okenwa/ckb-builder-track.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

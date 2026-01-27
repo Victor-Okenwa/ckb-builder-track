@@ -7,3 +7,8 @@ __Week Ending:__ Friday 23rd, 2026
 
 I learnt how data can be stored in a in cell. I stored a simple "HELLO WORLD" message in a cell and I also read the cell.
 
+![Dev test server](./screenshots/store-data-on-cell/store-data-on-cell.png)
+
+![Dev test server](./screenshots/store-data-on-cell/store-data-on-cell-write.png)
+
+![Dev test server](./screenshots/store-data-on-cell/store-data-on-cell-read.png)

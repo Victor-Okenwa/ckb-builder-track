@@ -12,3 +12,15 @@ I learnt how data can be stored in a in cell. I stored a simple "HELLO WORLD" me
 ![Dev test server](./screenshots/store-data-on-cell/store-data-on-cell-write.png)
 
 ![Dev test server](./screenshots/store-data-on-cell/store-data-on-cell-read.png)
+
+## Issues Faced
+
+When I clicked the write button, i was greeted with an error:
+
+![Dev test server](./screenshots/store-data-on-cell/store-data-on-cell-write-error.png)
+
+
+## How I fixed it
+
+
+

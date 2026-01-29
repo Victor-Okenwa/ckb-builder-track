@@ -1,7 +1,7 @@
 # Builder Track Weekly Report — Week 5
 
 __Name:__ Victor Okenwa.
-__Week Ending:__ Thrusday January 29th, 2026
+__Week Ending:__ Thursday January 29th, 2026
 
 ## How to create Fungible tokens
 

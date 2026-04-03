@@ -49,7 +49,11 @@ cd my-ckb-app
 
 ### Testing wallet connect.
 
-I did some basic testing of the scafolded wallet connect. I connect my wallet
+I did some basic testing of the scafolded wallet connect. I connected my wallet and it reflected.
+
+![Connect Wallet](./screenshots/wk9/connect-wallet.png)
+![Confirm Wallet Connecttion](./screenshots/wk9/confirm-wallet-connect.png)
+
 
 
 

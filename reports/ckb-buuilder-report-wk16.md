@@ -354,4 +354,7 @@ export function CommunityCardJoinButton({ className, mintPrice, communityId, cre
 }
 ```
 
+### Some Snapshots
+![Communities](./screenshots/wk16/communities.png)
 
+![Community Details](./screenshots/wk16/community-details.png)

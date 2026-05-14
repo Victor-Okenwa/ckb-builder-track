@@ -1,9 +1,9 @@
-# Builder Track Weekly Report — Week 18
+# Builder Track Weekly Report — Week 19
 
 __Name:__ Victor Okenwa.
-__Week Ending:__ Friday 1st May, 2026
+__Week Ending:__ Friday 7th May, 2026
 
-## Verification and Deeletion of Communties on Mint Gate.
+## Verification and Deletion of Communties on Mint Gate.
 
 During this week I tasked my self with the goal of achieving onchain verification as a single source of truth to derermin the owner of a community especially before deletion.
 
@@ -171,6 +171,112 @@ export async function DELETE(req: Request) {
 __Communty card Delete button__
 
 ```tsx
+export function CommunityCardDeleteButton({ className, communityId, communityName, isCreator, ...props }: { className?: ClassValue, communityId: string, communityName: string, isCreator: boolean } & HTMLAttributes<HTMLButtonElement>) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const { cccClient, signer, userAddress } = useApp();
+    const [deleteState, setDeleteState] = useState<'initializing' | 'verifying & deleting' | 'verify & delete'>("verify & delete");
 
+    const router = useRouter();
+
+    const handleDelete = useCallback(async () => {
+        try {
+            setIsLoading(true);
+            setDeleteState("initializing")
+            if (!signer) {
+                toast.error("Connect wallet first");
+                return;
+            }
+
+            if (!communityId) {
+                toast.error("Community not found");
+                return;
+            }
+
+            const params = new URLSearchParams({
+                community_id: communityId,
+                user_address: userAddress
+            });
+
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 25_000); // 25 seconds timeout
+            setDeleteState("verifying & deleting");
+
+            let res;
+            try {
+                res = await fetch(`/api/community/delete?${params}`, {
+                    signal: controller.signal,
+                });
+            } finally {
+                clearTimeout(timeout);
+            }
+
+            const json = await res.json();
+            if (!res.ok) throw new Error(json.error ?? "Failed to load communities");
+
+            toast.success("Community deleted successfully")
+            router.refresh();
+
+            setIsOpen(false);
+        } catch (error) {
+            console.log(error as Error);
+            toast.error((error as Error).message || "Failed to delete community, try again.");
+        }
+        finally {
+            setIsLoading(false);
+            setDeleteState("verify & delete")
+        }
+    }, [signer, communityId, userAddress, router]);
+
+    if (!isCreator) {
+        return null;
+    }
+
+    return (
+        <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
+            <AlertDialogTrigger asChild>
+                <Button variant="destructive" size="sm" className={cn(className)} {...props}>
+                    Delete
+                </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+                <AlertDialogHeader>
+                    <AlertDialogTitle>
+                        Delete {communityName}
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                        Are you sure you want to delete this community? It will be permanently deleted from our records  and cannot be recovered.
+                    </AlertDialogDescription>
+                </AlertDialogHeader>
+                <section>
+                    <h1>Steps to delete your community:</h1>
+                    <ol>
+                        <li className="flex items-start gap-2">
+                            <span className="text-sm text-muted-foreground">1.</span>
+                            <p className="text-sm text-muted-foreground">
+                                <b>Verify onchain ownership.</b> This will ensure that you are the sole owner of the community.
+                                We will check this by verifying the community creator address onchain.
+                            </p>
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <span className="text-sm text-muted-foreground">2.</span>
+                            <p className="text-sm text-muted-foreground">
+                                <b>Delete the community from the dashboard and communities page.</b> This will remove the community from the dashboard and make it unavailable to users.
+                            </p>
+                        </li>
+                    </ol>
+                </section>
+
+                <div className="flex justify-end gap-2">
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <Button variant={"destructive"} onClick={handleDelete} disabled={isLoading} className="capitalize">
+                        {isLoading && <Spinner />} {deleteState}
+                    </Button>
+                </div>
+            </AlertDialogContent>
+        </AlertDialog>
+    )
+}
 ```
 
+![Verify and Delete](./screenshots/wk19/verify-and-delete.png)

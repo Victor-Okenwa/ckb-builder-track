@@ -1,7 +1,7 @@
-# Builder Track Weekly Report — Week 19
+# Builder Track Weekly Report — Week 20
 
 __Name:__ Victor Okenwa.
-__Week Ending:__ Friday 7th May, 2026
+__Week Ending:__ Friday 15th May, 2026
 
 ## Retract Members, restructure app sidebar and add Revoke membership endpoints.
 
@@ -261,7 +261,6 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
 
                 <section className="w-full">
                     <Navigation isConnected={isConnected} />
-
                     {children}
                 </section>
             </SidebarProvider>

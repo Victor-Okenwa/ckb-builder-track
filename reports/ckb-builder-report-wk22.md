@@ -53,7 +53,7 @@ sudo tar -C /usr/local -xzf go1.26.3.linux-amd64.tar.gz
 
 6. Reload your terminal using `source ~/.bashrc`
 
-7. Check if God exists using `go version` or `which go` for path.
+7. Check if Go exists using `go version` or `which go` for path.
 
 
 

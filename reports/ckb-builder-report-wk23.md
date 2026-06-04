@@ -38,3 +38,4 @@ This are all the tools we need to start building with `Rust`.
 
 ![Rust Installation Screenshot](./screenshots/wk23/rust-install-1.png)
 ![Rust Installation Screenshot](./screenshots/wk23/rust-install-2.png)
+![Rust Installation Screenshot](./screenshots/wk23/rust-install-3.png)

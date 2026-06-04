@@ -15,6 +15,8 @@ I am currently following this [Rust Programming Tutorial for Beginners](https://
 ### What is Rust?
 Rust is a compiled programming language known for its safety, concurrency and performance. it is a fast and powerful programming language used to build high perfomance systems ad applications like such Operating systems, web servers and smart contracts.
 
+> Rust's package manger is `cargo`.
+
 ### Rust memory handling
  Rust does not have a `garbage collector`. A `Garbage collector` is a system that automatically frees up unused memory in a program.
 

@@ -21,3 +21,20 @@ Rust is a compiled programming language known for its safety, concurrency and pe
  Rust does not have a `garbage collector`. A `Garbage collector` is a system that automatically frees up unused memory in a program.
 
  Now Rust handles Memory freeing and allocation differently in the sense that it allows the developers to configure they won way of garbage collection or it checks what needs to be freed in memory and what shat should remain.
+
+
+### How to install Rust on Windows Subsystem for Linux
+
+On windows, to use RUST you have to downlaod and install Windows C++ build tools which is heavy and fills alot of disk space. So I decided to use Rust on WSL which frees me of such task and makes things easier.
+
+To install Rust all you need is a single comman
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+This will install `rustc`, `clippy`, `cargo`, `rustfmt`, `rust-docs`, `rust-std` e.t.c.
+
+This are all the tools we need to start building with `Rust`.
+
+![Rust Installation Screenshot](./screenshots/wk23/rust-install-1.png)
+![Rust Installation Screenshot](./screenshots/wk23/rust-install-2.png)
